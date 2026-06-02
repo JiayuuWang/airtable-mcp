@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Dedalus Labs, Inc. and its contributors
+# SPDX-License-Identifier: MIT
+
 from .config import AirtableConfig
 from .types import (
     Base,
