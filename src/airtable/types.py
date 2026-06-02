@@ -29,10 +29,10 @@ class View:
 class Table:
     id: str
     name: str
-    description: str | None = None
     primaryFieldId: str
     fields: list[Field]
     views: list[View]
+    description: str | None = None
 
 
 @dataclass
