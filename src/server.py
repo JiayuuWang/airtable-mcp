@@ -6,6 +6,10 @@ from dedalus_mcp.server import TransportSecuritySettings
 from airtable import airtable, airtable_tools
 
 
+def _disable_auto_output_schemas(server: MCPServer) -> None:
+    server.tools._build_output_schema = lambda _fn: None
+
+
 def create_server() -> MCPServer:
     return MCPServer(
         name="dedalus-labs-airtable-mcp",
@@ -18,10 +22,6 @@ def create_server() -> MCPServer:
 
 async def main() -> None:
     server = create_server()
+    _disable_auto_output_schemas(server)
     server.collect(*airtable_tools)
     await server.serve(port=8080)
-
-
-if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
