@@ -9,7 +9,7 @@ from dedalus_mcp.types import ToolAnnotations
 _BASE_URL = "https://api.airtable.com"
 
 airtable = Connection(
-    name="JiayuWang-airtable-mcp",
+    name="airtable",
     secrets=SecretKeys(api_key="AIRTABLE_API_KEY"),
     base_url=_BASE_URL,
     auth_header_format="Bearer {api_key}",
@@ -26,7 +26,7 @@ async def _req(
 ) -> Result:
     ctx = get_context()
     resp = await ctx.dispatch(
-        "JiayuWang-airtable-mcp",
+        "airtable",
         HttpRequest(method=method, path=path, body=body, params=params),
     )
     if resp.success:
