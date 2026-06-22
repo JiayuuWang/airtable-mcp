@@ -110,7 +110,7 @@ async def main() -> int:
     from dedalus_labs import AsyncDedalus, DedalusRunner
     from dedalus_mcp.auth import SecretValues
 
-    creds = [SecretValues(_rebind(airtable, MCP_SERVER_SLUG), api_key=AIRTABLE_API_KEY)]
+    creds = [SecretValues(airtable, api_key=AIRTABLE_API_KEY)]
 
     client = AsyncDedalus(
         api_key=DEDALUS_API_KEY,
